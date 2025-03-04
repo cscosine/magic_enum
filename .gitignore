@@ -4,6 +4,8 @@ install_dir/
 .vscode/
 .vs/
 
+cmakeUserPath.json
+
 ### C++ gitignore ###
 # Prerequisites
 *.d
