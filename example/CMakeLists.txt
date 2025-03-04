@@ -2,7 +2,13 @@ include(CheckCXXCompilerFlag)
 
 set(CMAKE_CXX_STANDARD 17)
 if((CMAKE_CXX_COMPILER_ID MATCHES "GNU") OR (CMAKE_CXX_COMPILER_ID MATCHES "Clang"))
-    set(OPTIONS -Wall -Wextra -Wshadow -pedantic-errors -Werror)
+  if(WIN32)
+    # clang in windows, does not support -pedantic-errors 
+    # and need -Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-unsafe-buffer-usage to remove a bunch of warning turned into errors
+    set(OPTIONS -Wall -Wextra -Wshadow -Werror -Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-unsafe-buffer-usage -Wno-ctad-maybe-unsupported -Wno-switch-default -Wno-unknown-argument -Wno-switch-enum)
+  else()
+  set(OPTIONS -Wall -Wextra -Wshadow -pedantic-errors -Werror)
+  endif()
 elseif(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
     set(OPTIONS /W4 /WX)
     if(HAS_PERMISSIVE_FLAG)
