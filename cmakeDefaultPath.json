@@ -24,6 +24,10 @@
       "hidden": true,
       "cacheVariables": {
       }
+    },
+    {
+      "name": "cmake-path-linux-ninja-multi-config",
+      "hidden": true
     }
   ]
 }
