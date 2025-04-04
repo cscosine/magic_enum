@@ -14,13 +14,7 @@
       }
     },
     {
-      "name": "cmake-path-linux-ninja-debug",
-      "hidden": true,
-      "cacheVariables": {
-      }
-    },
-    {
-      "name": "cmake-path-linux-ninja-release",
+      "name": "cmake-path-linux-ninja",
       "hidden": true,
       "cacheVariables": {
       }
