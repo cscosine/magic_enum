@@ -20,7 +20,7 @@
       }
     },
     {
-      "name": "cmake-path-linux-ninja-multi-config",
+      "name": "cmake-path-linux-ninja-multi-config-clang",
       "hidden": true
     }
   ]
