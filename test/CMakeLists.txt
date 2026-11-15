@@ -60,7 +60,9 @@ elseif(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
     # clang in windows, does not support -pedantic-errors 
     # and need -Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-unsafe-buffer-usage to remove a bunch of warning turned into errors
     # and -Wno-nrvo -Wno-c2y-extensions -Wno-padded -Wno-implicit-int-conversion for clang in msvc2026
-    set(OPTIONS -Wall -Wextra -Wshadow -Werror -Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-unsafe-buffer-usage -Wno-ctad-maybe-unsupported -Wno-switch-default -Wno-unknown-argument -Wno-switch-enum -Wno-reserved-identifier -Wno-string-conversion -Wno-old-style-cast -Wno-c2y-extensions -Wno-padded -Wno-implicit-int-conversion)
+    # and -Wno-missing-prototypes: the tests of 0.9.8 define the magic_enum_define_range_adl customization points
+    # (ADL) without a prototype
+    set(OPTIONS -Wall -Wextra -Wshadow -Werror -Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-unsafe-buffer-usage -Wno-ctad-maybe-unsupported -Wno-switch-default -Wno-unknown-argument -Wno-switch-enum -Wno-reserved-identifier -Wno-string-conversion -Wno-old-style-cast -Wno-c2y-extensions -Wno-padded -Wno-implicit-int-conversion -Wno-missing-prototypes)
     if(CMAKE_CXX_COMPILER_VERSION VERSION_GREATER_EQUAL 20.0)
       list(APPEND OPTIONS -Wno-nrvo)
     endif()
